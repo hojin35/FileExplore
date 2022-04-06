@@ -13,9 +13,11 @@ void Tree(fs::path _path,int depth)
 		const fs::directory_entry& entry = *itr;
 		//std::cout << entry.path() << std::endl;
 		path = entry.path();
+
+		auto myname = path.filename();
 		for (int i = 0; i < depth; i++)
-			std::cout << " ";
-		std::cout << "中" << path << std::endl;
+			std::cout << "弛   ";
+			std::cout << "戍式式 " << myname << std::endl;
 
 		if (fs::is_directory(path))
 		{	
@@ -27,10 +29,13 @@ void Tree(fs::path _path,int depth)
 
 int main()
 {
+	fs::path startPath;
+	startPath = "c:/Download/";
 	fs::path path;
-	int depth = 1;
-	fs::directory_iterator itr("c:/Download/");
+	int depth = 0;
+	fs::directory_iterator itr(startPath);
 	std::cout << "$ tree" << std::endl;
+	std::cout << startPath << std::endl;
 
 	while (itr != fs::end(itr))
 	{
@@ -38,9 +43,10 @@ int main()
 		//std::cout << entry.path() << std::endl;
 		path = entry.path();
 
+		auto myname = path.filename();
 		for (int i = 0; i < depth; i++)
-			std::cout << " ";
-		std::cout << depth << path << std::endl;
+			std::cout << "弛   ";
+			std::cout << "戍式式 " << myname << std::endl;
 
 
 		if (fs::is_directory(path))
